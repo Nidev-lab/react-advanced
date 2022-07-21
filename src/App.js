@@ -23,6 +23,7 @@ const App = () => {
     <div className="App">
       { isLoading && <p>Loading...</p> }
       { characters?.map(character => <p key={character.id}>{character.type}</p>) }
+      <p>Branch de prueba</p>
     </div>
   );
 }
