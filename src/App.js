@@ -17,9 +17,6 @@ const App = () => {
 
   useEffect(() => {
     getCharacter();
-    console.log("====================================");
-    console.log("f por la rama dev");
-    console.log("====================================");
   }, []);
 
   return (
