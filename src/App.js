@@ -1,30 +1,38 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import "./App.css";
+import axios from "axios";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [characters, setCharacters] = useState([])
+  const [isLoading, setIsLoading] = useState(false);
+  const [characters, setCharacters] = useState([]);
 
-  const getCharacter = async() => {
+  const getCharacter = async () => {
     setIsLoading(true);
 
-    const { data } = await axios('https://rickandmortyapi.com/api/character');
+    const { data } = await axios("https://rickandmortyapi.com/api/character");
     setCharacters(data.results);
 
     setIsLoading(false);
   };
 
   useEffect(() => {
-    getCharacter()
-  }, [])
-  
+    getCharacter();
+    console.log("====================================");
+    console.log("f por la rama dev");
+    console.log("====================================");
+  }, []);
+
   return (
     <div className="App">
-      { isLoading && <p>Loading...</p> }
-      { characters?.map(character => <p key={character.id}>{character.type}</p>) }
+      {isLoading && <p>Loading...</p>}
+      {characters?.map((character) => (
+        <div key={character.id} className='imgContainer'>
+          <p >{character.type}</p>
+          {character.type && <img src={character.image} alt="" width='100'/>}
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
