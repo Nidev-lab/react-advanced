@@ -17,7 +17,6 @@ const App = () => {
   useEffect(() => {
     getCharacter();
   }, []);
-
   return (
     <div className="App">
       { isLoading && <p>Loading...</p> }
