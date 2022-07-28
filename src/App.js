@@ -28,7 +28,6 @@ const App = () => {
       <p>rama de prueba!!</p>
     </div>
   );
-
 };
 
 export default App;
