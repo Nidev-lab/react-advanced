@@ -8,7 +8,6 @@ const App = () => {
 
   const getCharacter = async () => {
     setIsLoading(true);
-
     const { data } = await axios('https://rickandmortyapi.com/api/character');
     setCharacters(data.results);
 
@@ -22,6 +21,7 @@ const App = () => {
     <div className="App">
       { isLoading && <p>Loading...</p> }
       { characters?.map(character => <p key={character.id}>{character.type}</p>) }
+      <p>otra branch de prueba je</p>
     </div>
   );
 };
