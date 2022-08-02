@@ -6,7 +6,7 @@ import useFetch from './hooks/CustomFetch/useFetch';
 const App = () => {
   const [idPersonaje, setIdPersonaje] = useState(1);
 
-  const { data, loading } = useFetch('https://rickandmortyapi.com/api/character');
+  const { data, loading, error } = useFetch('https://rickandmortyapi.com/api/character');
 
   const getIdPersonaje = (id) => {
     setIdPersonaje(id);
@@ -24,6 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
+      { error && <p>{error}</p> }
       { loading && <p>Loading...</p> }
       { data?.map(character => (
         <Card

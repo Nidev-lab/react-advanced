@@ -9,13 +9,19 @@ const useFetch = (url) => {
   });
 
   const getData = async () => {
-    const { data } = await axios(url);
-
-    setDataFetch({
-      loading: false,
-      error: null,
-      data: data.results,
-    });
+    try {
+      const { data } = await axios(url);
+  
+      setDataFetch({
+        loading: false,
+        data: data.results,
+      });
+    } catch (error) {
+      setDataFetch({
+        loading: false,
+        error,
+      });
+    }
   };
 
   useEffect(() => {
