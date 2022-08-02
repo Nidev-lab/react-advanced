@@ -22,7 +22,6 @@
     "consistent-return": "off",
     "no-else-return": "off",
     "global-require": "off",
-    "allowSingleLineBlocks": true,
     "no-param-reassign": ["error", { "props": false }],
     "new-cap": "off",
     "arrow-parens": "off",
