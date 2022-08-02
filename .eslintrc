@@ -27,7 +27,11 @@
     "arrow-parens": "off",
     "prefer-destructuring": "warn",
     "react/react-in-jsx-scope": "off",
+<<<<<<< HEAD
     "react/prop-types": [0, { "ignore": ["children"] }],
+=======
+    "react/prop-types": [1, { "ignore": ["children"] }],
+>>>>>>> ba20d203de0f97ceb2d51b0e0c66bee124361e8a
     "import/no-extraneous-dependencies": [
       "warn",
       { "devDependencies": ["**/*.stories.js", "**/*.spec.js"] }
