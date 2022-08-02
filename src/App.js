@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import axios from 'axios';
 import { Card } from './components/Card';
+import useFetch from './hooks/CustomFetch/useFetch';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [idPersonaje, setIdPersonaje] = useState(1);
 
+  const { data } = useFetch('https://rickandmortyapi.com/api/character');
+
   const getCharacter = async () => {
     setIsLoading(true);
-
-    const { data } = await axios('https://rickandmortyapi.com/api/character');
-    setCharacters(data.results);
-
+    setCharacters(data);
     setIsLoading(false);
   };
 
@@ -26,7 +25,6 @@ const App = () => {
   };
 
   const getCharacterById = async () => {
-    const { data } = await axios(`https://rickandmortyapi.com/api/character/${idPersonaje}`);
     console.log(data);
   };
 
@@ -34,6 +32,7 @@ const App = () => {
     getCharacterById();
   }, [idPersonaje]);
 
+  console.log(characters);
   return (
     <div className="App">
       { isLoading && <p>Loading...</p> }
