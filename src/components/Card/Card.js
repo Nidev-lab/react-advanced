@@ -10,8 +10,8 @@ const Card = ({ character, getIdPersonaje }) => {
   };
 
   return (
-    <div className="card" data-testid="character-card">
-      <img src={character.image} className="card-img-top" alt={character.name} />
+    <div className="card">
+      <img src={character.image} className="card-img-top" alt="..." />
       <div className={classNames('card-body', {
         'bg-light': theme === 'light',
         'bg-dark text-white': theme === 'dark',
