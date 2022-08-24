@@ -18,7 +18,7 @@ const Card = ({ character, getIdPersonaje }) => {
       })}>
           <h5 className="card-title">{character.name}</h5>
           <p className="card-text">{character.species}</p>
-          <button className={`btn ${theme === 'light' ? 'btn-primary' : 'btn-success'}`} onClick={handleClick}>Go somewhere</button>
+          <button className="btn btn-primary" onClick={handleClick}>Go somewhere</button>
       </div>
     </div>
   );

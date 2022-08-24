@@ -11,13 +11,8 @@
       "jsx": true
     }
   },
-  "extends": [
-    "airbnb-base",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react"
-  ],
+  "extends": ["airbnb-base", "plugin:react/recommended"],
+  "plugins": ["react"],
   "rules": {
     "linebreak-style": 0,
     "no-unused-vars": "warn",
@@ -27,44 +22,19 @@
     "consistent-return": "off",
     "no-else-return": "off",
     "global-require": "off",
-    "no-param-reassign": [
-      "error",
-      {
-        "props": false
-      }
-    ],
+    "no-param-reassign": ["error", { "props": false }],
     "new-cap": "off",
     "arrow-parens": "off",
     "prefer-destructuring": "warn",
     "react/react-in-jsx-scope": "off",
-<<<<<<< HEAD
-    "react/prop-types": [
-      0,
-      {
-        "ignore": [
-          "children"
-        ]
-      }
-    ],
-=======
     "react/prop-types": [0, { "ignore": ["children"] }],
->>>>>>> 1e4ba4f0a622c2c2c828bdf56cc81cb4e1c9138c
     "import/no-extraneous-dependencies": [
       "warn",
-      {
-        "devDependencies": [
-          "**/*.stories.js",
-          "**/*.spec.js"
-        ]
-      }
+      { "devDependencies": ["**/*.stories.js", "**/*.spec.js"] }
     ],
     "import/prefer-default-export": "off"
   },
-  "ignorePatterns": [
-    "dist/",
-    "node_modules/",
-    "storybook-static/"
-  ],
+  "ignorePatterns": ["dist/", "node_modules/", "storybook-static/"],
   "env": {
     "es6": true,
     "browser": true,

@@ -24,6 +24,7 @@ const App = () => {
   }, [idPersonaje]);
 
   return (
+<<<<<<< HEAD
     <ThemeProvider>
       <div className="App">
         <Header />
@@ -37,6 +38,18 @@ const App = () => {
         ))}
       </div>
     </ThemeProvider>
+=======
+    <div className="App">
+      { dataPersonajes?.loading && <p>Loading...</p> }
+      { dataPersonajes?.data?.results.map(character => (
+        <Card
+          character={character}
+          key={character.id}
+          getIdPersonaje={getIdPersonaje}
+        />
+      ))}
+    </div>
+>>>>>>> parent of 4be37c5 (ej. clase 8)
   );
 };
 
