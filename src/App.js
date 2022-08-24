@@ -31,7 +31,7 @@ const App = () => {
         {/* { dataPersonajes?.loading && <p>Loading...</p> }
         { dataPersonajes?.data?.results.map(character => (
           <Card
-            character={character}
+            {...character}
             key={character.id}
             getIdPersonaje={getIdPersonaje}
           />
