@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Card } from './components/Card';
+import { Counter } from './components/Counter';
 import { Header } from './components/Header';
 import useFetch from './hooks/CustomFetch/useFetch';
 import { ThemeProvider } from './providers/ThemeProvider';
@@ -27,14 +28,15 @@ const App = () => {
     <ThemeProvider>
       <div className="App">
         <Header />
-        { dataPersonajes?.loading && <p>Loading...</p> }
+        {/* { dataPersonajes?.loading && <p>Loading...</p> }
         { dataPersonajes?.data?.results.map(character => (
           <Card
             character={character}
             key={character.id}
             getIdPersonaje={getIdPersonaje}
           />
-        ))}
+        ))} */}
+        <Counter />
       </div>
     </ThemeProvider>
   );
