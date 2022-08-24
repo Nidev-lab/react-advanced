@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 /* eslint-disable no-return-assign */
 import React, {
   useMemo, useCallback, useState, useRef,
+=======
+import {
+  useCallback, useMemo, useRef, useState,
+>>>>>>> 1e4ba4f0a622c2c2c828bdf56cc81cb4e1c9138c
 } from 'react';
 
 const Counter = () => {
@@ -13,6 +18,7 @@ const Counter = () => {
     return counter * 2;
   };
 
+<<<<<<< HEAD
   const callback = useCallback(multiplicar, [counter]); // retorna una fn
   // console.log(callback());
   const memo = useMemo(multiplicar, [counter]); // retorna un valor
@@ -43,6 +49,26 @@ const Counter = () => {
     <div>{number.current}</div>
     {/* <button onClick={() => setCounter(counter + 1)}>Incementar</button> */}
     <button onClick={handleClick} ref={buttonRef}>Incrementar</button>
+=======
+  const callback = useCallback(multiplicar, [counter]);
+
+  // console.log(callback());
+
+  const memo = useMemo(multiplicar, [counter]);
+
+  // console.log(memo);
+
+  const handleClick = () => {
+    number.current += 1;
+  };
+
+  return (
+    <>
+      <input type="text" ref={inputRef}/>
+      <div>{counter}</div>
+      <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
+      <button onClick={() => setCounter(counter - 1)}>Restar</button>
+>>>>>>> 1e4ba4f0a622c2c2c828bdf56cc81cb4e1c9138c
     </>
   );
 };

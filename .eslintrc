@@ -37,6 +37,7 @@
     "arrow-parens": "off",
     "prefer-destructuring": "warn",
     "react/react-in-jsx-scope": "off",
+<<<<<<< HEAD
     "react/prop-types": [
       0,
       {
@@ -45,6 +46,9 @@
         ]
       }
     ],
+=======
+    "react/prop-types": [0, { "ignore": ["children"] }],
+>>>>>>> 1e4ba4f0a622c2c2c828bdf56cc81cb4e1c9138c
     "import/no-extraneous-dependencies": [
       "warn",
       {
