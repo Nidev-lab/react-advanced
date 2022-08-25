@@ -1,29 +1,43 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import axios from 'axios';
+import { Card } from './components/Card';
+import Header from './components/Header/Header';
+import useFetch from './hooks/CustomFetch/useFetch';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [characters, setCharacters] = useState([]);
+  const [idPersonaje, setIdPersonaje] = useState(1);
 
-  const getCharacter = async () => {
-    setIsLoading(true);
+  const { data, loading } = useFetch('https://rickandmortyapi.com/api/character');
 
-    const { data } = await axios('https://rickandmortyapi.com/api/character');
-    setCharacters(data.results);
+  const getIdPersonaje = (id) => {
+    setIdPersonaje(id);
+  };
 
-    setIsLoading(false);
+  const getCharacterById = () => {
+    fetch(`https://rickandmortyapi.com/api/character/${idPersonaje}`)
+      .then(resp => resp.json())
+      .then(json => console.log(json));
   };
 
   useEffect(() => {
-    getCharacter();
-  }, []);
+    getCharacterById();
+  }, [idPersonaje]);
 
   return (
-    <div className="App">
-      { isLoading && <p>Loading...</p> }
-      { characters?.map(character => <p key={character.id}>{character.type}</p>) }
+    <ThemeProvider>
+      <div className="App">
+      <Header />
+      { loading && <p>Loading...</p> }
+      { data?.map(character => (
+        <Card
+          character={character}
+          key={character.id}
+          getIdPersonaje={getIdPersonaje}
+        />
+      ))}
     </div>
+    </ThemeProvider>
   );
 };
 
