@@ -2,8 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { useThemeContext } from '../../providers/ThemeProvider';
 
-// eslint-disable-next-line object-curly-newline
-const Card = ({ name, image, species, id, getIdPersonaje }) => {
+const Card = ({
+  name, image, species, id, getIdPersonaje,
+}) => {
   if (!name || !image) {
     return null;
   }

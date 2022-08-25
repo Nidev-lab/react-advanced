@@ -1,5 +1,6 @@
-// eslint-disable-next-line object-curly-newline
-import { useCallback, useMemo, useRef, useState } from 'react';
+import {
+  useCallback, useMemo, useRef, useState,
+} from 'react';
 
 const Counter = () => {
   const number = useRef(0);
