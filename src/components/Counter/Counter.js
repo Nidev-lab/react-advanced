@@ -1,6 +1,5 @@
-import {
-  useCallback, useMemo, useRef, useState,
-} from 'react';
+// eslint-disable-next-line object-curly-newline
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 const Counter = () => {
   const number = useRef(0);
@@ -26,10 +25,12 @@ const Counter = () => {
 
   return (
     <>
-      <input type="text" ref={inputRef}/>
+      <input type="text" ref={inputRef} />
       <div>{counter}</div>
       <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
-      <button onClick={() => setCounter(counter - 1)}>Restar</button>
+      <button onClick={counter > 0 ? () => setCounter(counter - 1) : null}>
+        Restar
+      </button>
     </>
   );
 };
