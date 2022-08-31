@@ -1,15 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '../../providers/ThemeProvider';
 
 const Card = ({
-  name, image, species, id, getIdPersonaje,
+  name, image, species, id, getIdPersonaje, theme,
 }) => {
-  if (!name || !image) {
+  if (!name || !image || !id || !species) {
     return null;
   }
-
-  const theme = useThemeContext();
 
   const handleClick = () => {
     getIdPersonaje(id);
@@ -24,7 +21,15 @@ const Card = ({
       })}>
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{species}</p>
-          <button className={`btn ${theme === 'light' ? 'btn-primary' : 'btn-success'}`} onClick={handleClick}>Go somewhere</button>
+          <button
+            className={classNames('btn', {
+              'btn-primary': theme === 'light',
+              'btn-success': theme === 'dark',
+            })}
+            onClick={handleClick}
+          >
+            Go somewhere
+          </button>
       </div>
     </div>
   );

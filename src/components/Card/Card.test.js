@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Card from './Card';
 
 const character = {
@@ -33,5 +33,23 @@ describe('Card test', () => {
     const element = screen.getByAltText(character.image);
 
     expect(element).toBeInTheDocument();
+  });
+
+  test('Esperamos que ante un click en el boton, el componente reaccione.', () => {
+    const getIdPersonaje = jest.fn();
+    render(<Card {...character} getIdPersonaje={getIdPersonaje} />);
+
+    const element = screen.getByText('Go somewhere');
+    fireEvent.click(element);
+
+    expect(getIdPersonaje).toHaveBeenCalled();
+  });
+
+  test('Esperamos que el componente este en theme dark', () => {
+    render(<Card {...character} theme="dark" />);
+
+    const element = screen.getByText('Go somewhere');
+
+    expect(element).toHaveClass('btn-success');
   });
 });

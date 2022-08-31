@@ -20,8 +20,14 @@ const Counter = () => {
 
   // console.log(memo);
 
-  const handleClick = () => {
-    number.current += 1;
+  // const handleClick = () => {
+  //   number.current += 1;
+  // };
+
+  const handleClickResta = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
   };
 
   return (
@@ -29,7 +35,7 @@ const Counter = () => {
       <input type="text" ref={inputRef}/>
       <div>{counter}</div>
       <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
-      <button onClick={() => setCounter(counter - 1)}>Restar</button>
+      <button onClick={handleClickResta}>Restar</button>
     </>
   );
 };

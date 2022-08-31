@@ -28,7 +28,19 @@ describe('Counter test', () => {
     fireEvent.click(buttonElement);
 
     const element = screen.getByText('0');
+    expect(element).toBeInTheDocument();
+  });
 
+  test('Deberia restar cuando sea > 0', () => {
+    render(<Counter />);
+
+    const buttonElementSumar = screen.getByText('Incrementar');
+    fireEvent.click(buttonElementSumar);
+
+    const buttonElement = screen.getByText('Restar');
+    fireEvent.click(buttonElement);
+
+    const element = screen.getByText('0');
     expect(element).toBeInTheDocument();
   });
 });
