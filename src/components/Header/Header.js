@@ -19,6 +19,7 @@ const Header = () => {
 
   return (
     <nav
+      data-testid="navTestId"
       className={classNames('navbar navbar-light', {
         'bg-light': theme === 'light',
         'bg-dark': theme === 'dark',
