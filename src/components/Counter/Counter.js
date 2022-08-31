@@ -32,10 +32,16 @@ const Counter = () => {
 
   return (
     <>
-      <input type="text" ref={inputRef}/>
+      <input type="text" ref={inputRef} />
       <div>{counter}</div>
       <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
+<<<<<<< HEAD
       <button onClick={handleClickResta}>Restar</button>
+=======
+      <button onClick={counter > 0 ? () => setCounter(counter - 1) : null}>
+        Restar
+      </button>
+>>>>>>> 08724e1452686ff9e2e5ddca36bf793fe22efe69
     </>
   );
 };
