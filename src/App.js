@@ -4,21 +4,28 @@ import { Card } from './components/Card';
 import { Counter } from './components/Counter';
 import { Header } from './components/Header';
 import useFetch from './hooks/CustomFetch/useFetch';
-import { ThemeProvider, useThemeContext } from './providers/ThemeProvider';
+import { useThemeContext, useThemeToggleContext } from './providers/ThemeProvider';
 
 const App = () => {
   const [idPersonaje, setIdPersonaje] = useState(null);
+  const [dataPersonajeById, setDataPersonajeById] = useState(null);
+
   const theme = useThemeContext();
+  const setTheme = useThemeToggleContext();
 
   const dataPersonajes = useFetch('https://rickandmortyapi.com/api/character');
-  const dataPersonajeId = useFetch(`https://rickandmortyapi.com/api/character/${idPersonaje}`);
+
+  if (idPersonaje) {
+    const dataPersonajeId = useFetch(`https://rickandmortyapi.com/api/character/${idPersonaje}`);
+    setDataPersonajeById(dataPersonajeId);
+  }
 
   const getIdPersonaje = (id) => {
     setIdPersonaje(id);
   };
 
   const getCharacterById = () => {
-    console.log(dataPersonajeId);
+    console.log(dataPersonajeById);
   };
 
   useEffect(() => {
@@ -27,7 +34,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       { dataPersonajes?.loading && <p>Loading...</p> }
       { dataPersonajes?.data?.results.map(character => (
         <>
@@ -38,7 +45,7 @@ const App = () => {
             theme={theme}
           />
           {
-            dataPersonajeId && <p>{dataPersonajeId?.data?.name}</p>
+            dataPersonajeById && <p>{dataPersonajeById?.data?.name}</p>
           }
         </>
       ))}

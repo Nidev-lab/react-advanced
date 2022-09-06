@@ -1,14 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
-import {
-  useThemeContext,
-  useThemeToggleContext,
-} from '../../providers/ThemeProvider';
 
-const Header = () => {
-  const setTheme = useThemeToggleContext();
-  const theme = useThemeContext();
-
+const Header = ({ theme, setTheme }) => {
   const handleChange = () => {
     if (theme === 'light') {
       setTheme('dark');
@@ -23,13 +16,11 @@ const Header = () => {
         'bg-light': theme === 'light',
         'bg-dark': theme === 'dark',
       })}
+      data-testid="header-test"
     >
       <div className="container-fluid">
         <span className="navbar-brand mb-0 h1">Navbar</span>
       </div>
-      <button className="btn-primary" onClick={() => setTheme('dark')}>
-        Dark
-      </button>
       <div className="form-check form-switch">
         <input
           className="form-check-input"
