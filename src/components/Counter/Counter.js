@@ -1,4 +1,5 @@
 import {
+  useId,
   useReducer,
 } from 'react';
 import reducer from '../../utils/opertationReducer';
@@ -10,10 +11,12 @@ const init = () => {
 };
 
 const Counter = () => {
+  const id = useId();
   const [state, dispatch] = useReducer(reducer, initialState, init);
 
   return (
     <>
+      <p>{id}</p>
       <p>{state}</p>
       <button onClick={() => dispatch({ type: 'incrementar' })}>Sumar</button>
       <button onClick={() => dispatch({ type: 'decrementar' })}>Restar</button>
