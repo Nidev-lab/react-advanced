@@ -36,7 +36,7 @@ const App = () => {
     <div className="App">
       <Header theme={theme} setTheme={setTheme} />
       { dataPersonajes?.loading && <p>Loading...</p> }
-      { dataPersonajes?.data?.results.map(character => (
+      {/* { dataPersonajes?.data?.results.map(character => (
         <>
           <Card
             {...character}
@@ -48,7 +48,7 @@ const App = () => {
             dataPersonajeById && <p>{dataPersonajeById?.data?.name}</p>
           }
         </>
-      ))}
+      ))} */}
       <Counter />
     </div>
   );

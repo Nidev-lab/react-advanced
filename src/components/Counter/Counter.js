@@ -1,41 +1,23 @@
 import {
-  useCallback, useMemo, useRef, useState,
+  useReducer,
 } from 'react';
+import reducer from '../../utils/opertationReducer';
+
+const initialState = 0;
+
+const init = () => {
+  return initialState;
+};
 
 const Counter = () => {
-  const number = useRef(0);
-  const inputRef = useRef();
-  const buttonRef = useRef();
-  const [counter, setCounter] = useState(0);
-
-  const multiplicar = () => {
-    return counter * 2;
-  };
-
-  const callback = useCallback(multiplicar, [counter]);
-
-  // console.log(callback());
-
-  const memo = useMemo(multiplicar, [counter]);
-
-  // console.log(memo);
-
-  // const handleClick = () => {
-  //   number.current += 1;
-  // };
-
-  const handleClickResta = () => {
-    if (counter > 0) {
-      setCounter(counter - 1);
-    }
-  };
+  const [state, dispatch] = useReducer(reducer, initialState, init);
 
   return (
     <>
-      <input type="text" ref={inputRef} />
-      <div>{counter}</div>
-      <button onClick={() => setCounter(counter + 1)}>Incrementar</button>
-      <button onClick={handleClickResta}>Restar</button>
+      <p>{state}</p>
+      <button onClick={() => dispatch({ type: 'incrementar' })}>Sumar</button>
+      <button onClick={() => dispatch({ type: 'decrementar' })}>Restar</button>
+      <button onClick={() => dispatch({ type: 'reset', payload: initialState })}>Reset</button>
     </>
   );
 };
