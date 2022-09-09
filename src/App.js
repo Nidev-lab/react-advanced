@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
 import { Card } from './components/Card';
 import { Counter } from './components/Counter';
 import { Header } from './components/Header';
 import useFetch from './hooks/CustomFetch/useFetch';
 import { useThemeContext, useThemeToggleContext } from './providers/ThemeProvider';
+import { setThemeLight } from './app/ThemeProviderRedux';
 
 const App = () => {
   const [idPersonaje, setIdPersonaje] = useState(null);
   const [dataPersonajeById, setDataPersonajeById] = useState(null);
+  const themeRedux = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
 
+  console.log(themeRedux);
   const theme = useThemeContext();
   const setTheme = useThemeToggleContext();
 
@@ -49,6 +54,7 @@ const App = () => {
           }
         </>
       ))} */}
+      <button onClick={() => dispatch(setThemeLight())}>Cambiar tema</button>
       <Counter />
     </div>
   );
